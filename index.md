@@ -1,6 +1,6 @@
 ---
-layout: index
 title: My Github Site
+layout: index
 ---
 
 # chapter 1
