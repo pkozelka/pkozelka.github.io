@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="pkozelka.github.io" xmlns="http://maven.apache.org/DECORATION/1.4.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/DECORATION/1.4.0 http://maven.apache.org/xsd/decoration-1.4.0.xsd">
+    <bannerLeft>
+        <name></name>
+    </bannerLeft>
+    <skin>
+        <groupId>org.apache.maven.skins</groupId>
+        <artifactId>maven-fluido-skin</artifactId>
+        <version>1.3.1</version>
+    </skin>
+    <custom>
+        <fluidoSkin>
+            <topBarEnabled>true</topBarEnabled>
+            <navBarStyle>navbar-inverse</navBarStyle>
+            <topBarIcon>
+                <name>CODE</name>
+                <alt>Petr Kozelka's coding site</alt>
+                <src>https://avatars0.githubusercontent.com/u/45221?s=24</src>
+                <href>http://pkozelka.github.io/index.html</href>
+            </topBarIcon>
+            <sideBarEnabled>false</sideBarEnabled>
+            <gitHub>
+                <projectId>pkozelka</projectId>
+                <ribbonOrientation>right</ribbonOrientation>
+                <ribbonColor>green</ribbonColor>
+            </gitHub>
+            <leftColumnClass>span3</leftColumnClass>
+            <bodyColumnClass>span9</bodyColumnClass>
+            <sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>
+        </fluidoSkin>
+    </custom>
+    <publishDate position="right"/>
+    <version position="none"/>
+
+    <body>
+        <head>
+            <link rel="shortcut icon" href="favicon-32.ico"/>
+        </head>
+        <breadcrumbs>
+            <item name="code" href="index.html"/>
+        </breadcrumbs>
+
+        <menu name="Projects">
+            <item name="npmpack-maven-plugin" href="npmpack-maven-plugin/index.html"/>
+            <item name="contentcheck-maven-plugin" href="http://buildbox.github.io/contentcheck-maven-plugin/index.html"/>
+        </menu>
+        <menu name="Links">
+            <item name="Apache" href="http://www.apache.org/"/>
+            <item name="Maven 2" href="http://maven.apache.org/"/>
+        </menu>
+    </body>
+    <poweredBy>
+        <logo img="http://maven.apache.org/images/logos/maven-feather.png" 
+              href="http://maven.apache.org" 
+              name="Apache Maven" position="left"/>
+    </poweredBy>
+    
+</project>
