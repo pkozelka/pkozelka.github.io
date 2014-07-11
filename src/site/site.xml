@@ -44,7 +44,7 @@
 
         <menu name="Projects">
             <item name="npmpack-maven-plugin" href="npmpack-maven-plugin/index.html"/>
-            <item name="contentcheck-maven-plugin" href="http://buildbox.github.io/contentcheck-maven-plugin/index.html"/>
+            <item name="contentcheck-maven-plugin" href="contentcheck-maven-plugin/index.html"/>
         </menu>
         <menu name="Links">
             <item name="Apache" href="http://www.apache.org/"/>
