@@ -11,7 +11,7 @@
         <artifactId>oss-parent</artifactId>
         <version>9</version>
     </parent>
-    <url>http://pkozelka.github.io</url>
+    <url>http://code.kozelka.net</url>
     <description>My pages at github</description>
     <build>
         <plugins>
@@ -100,6 +100,6 @@
     </licenses>
     <organization>
         <name>Petr Kozelka</name>
-        <url>https://pkozelka.github.io</url>
+        <url>https://kozelka.net</url>
     </organization>
 </project>

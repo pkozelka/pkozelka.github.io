@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="myCanvas" width="300" height="60" style="border:1px solid #d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.
+</canvas>
+<script>
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.font = "50px Arial";
+    ctx.fillText("KOZELKA",22,45);
+    ctx.font = "20px Arial";
+    ctx.rotate(-Math.PI/2);
+    ctx.fillText("CODE.",-62,15);
+    ctx.rotate(Math.PI);
+    ctx.fillText(".NET",0,-240);
+</script>
+</body>
+</html>
