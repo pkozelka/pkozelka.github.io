@@ -3,6 +3,9 @@ This project generates my Github Pages at http://code.kozelka.net using maven si
 
 Subprojects:
 
+   * [runjar](https://github.com/pkozelka/runjar)
+     makes it easy to create a single-jar application
+
    * [npmpack-maven-plugin](https://github.com/pkozelka/npmpack-maven-plugin)
      provides integration of npm tooling into maven build
 
