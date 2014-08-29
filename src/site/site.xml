@@ -28,9 +28,12 @@
             <leftColumnClass>span3</leftColumnClass>
             <bodyColumnClass>span9</bodyColumnClass>
             <sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>
+            <googlePlusOne/>
+            <breadcrumbDivider>»</breadcrumbDivider>
+            <skipGenerationDate>true</skipGenerationDate>
         </fluidoSkin>
     </custom>
-    <publishDate position="right"/>
+    <publishDate position="none"/>
     <version position="none"/>
 
     <body>
@@ -41,6 +44,7 @@
         <menu name="Projects">
             <item name="npmpack-maven-plugin" href="npmpack-maven-plugin/index.html"/>
             <item name="contentcheck-maven-plugin" href="contentcheck-maven-plugin/index.html"/>
+            <item name="runjar" href="runjar/index.html"/>
         </menu>
         <menu name="Links">
             <item name="Apache" href="http://www.apache.org/"/>
@@ -48,8 +52,8 @@
         </menu>
     </body>
     <poweredBy>
-        <logo img="http://maven.apache.org/images/logos/maven-feather.png" 
-              href="http://maven.apache.org" 
+        <logo img="http://maven.apache.org/images/logos/maven-feather.png"
+              href="http://maven.apache.org"
               name="Apache Maven" position="left"/>
     </poweredBy>
 </project>
