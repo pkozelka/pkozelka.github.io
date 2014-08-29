@@ -42,9 +42,9 @@
         </breadcrumbs>
 
         <menu name="Projects">
+            <item name="runjar" href="runjar/index.html"/>
             <item name="npmpack-maven-plugin" href="npmpack-maven-plugin/index.html"/>
             <item name="contentcheck-maven-plugin" href="contentcheck-maven-plugin/index.html"/>
-            <item name="runjar" href="runjar/index.html"/>
         </menu>
         <menu name="Links">
             <item name="Apache" href="http://www.apache.org/"/>
