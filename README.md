@@ -11,3 +11,10 @@ Subprojects:
 
    * [contentcheck-maven-plugin](https://github.com/pkozelka/contentcheck-maven-plugin)
      protects WAR against harmful or legally problematic content
+
+
+Links to older projects:
+
+* [args-inject](http://buildbox.sourceforge.net/args-inject/index.html)
+* [Buildozer](http://buildbox.sourceforge.net/buildozer/index.html)
+* [Releasator](http://releasator.sourceforge.net/index.html)

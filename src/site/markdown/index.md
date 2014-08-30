@@ -2,7 +2,7 @@ Title: Welcome
 Author: Petr Kozelka
 
 
-## My coding site
+## My coding projects
 
 ### [runjar](runjar/index.html)
 
@@ -21,3 +21,14 @@ Author: Petr Kozelka
 * Keep archive content under explicit control
 * Detect class conflicts among contained jars.
 
+## Older stuff
+
+* [args-inject](http://buildbox.sourceforge.net/args-inject/index.html)
+  A commandline injection library - helps with commandline parsing tasks
+
+* [Buildozer](http://buildbox.sourceforge.net/buildozer/index.html)
+  Simplifies navigation and effective build in complex Maven projects.
+  (has some issues with Maven 3, needs update)
+
+* [Releasator](http://releasator.sourceforge.net/index.html)
+  Adds much more automation to the Maven release process.
