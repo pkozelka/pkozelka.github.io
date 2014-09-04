@@ -20,11 +20,13 @@
                 <href>http://code.kozelka.net/index.html</href>
             </topBarIcon>
             <sideBarEnabled>false</sideBarEnabled>
+<!--
             <gitHub>
                 <projectId>pkozelka</projectId>
                 <ribbonOrientation>right</ribbonOrientation>
                 <ribbonColor>green</ribbonColor>
             </gitHub>
+-->
             <leftColumnClass>span3</leftColumnClass>
             <bodyColumnClass>span9</bodyColumnClass>
             <sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>
@@ -45,8 +47,10 @@
             <item name="runjar" href="runjar/index.html"/>
             <item name="npmpack-maven-plugin" href="npmpack-maven-plugin/index.html"/>
             <item name="contentcheck-maven-plugin" href="contentcheck-maven-plugin/index.html"/>
+            <item name="args-inject" href="args-inject/index.html"/>
         </menu>
         <menu name="Links">
+            <item name="Fork me on GitHub" href="https://github.com/pkozelka"/>
             <item name="Apache" href="http://www.apache.org/"/>
             <item name="Maven 2" href="http://maven.apache.org/"/>
         </menu>

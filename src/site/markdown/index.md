@@ -23,7 +23,7 @@ Author: Petr Kozelka
 
 ## Older stuff
 
-* [args-inject](http://buildbox.sourceforge.net/args-inject/index.html)
+* [args-inject](http://code.kozelka.net/args-inject/index.html)
   A commandline injection library - helps with commandline parsing tasks
 
 * [Buildozer](http://buildbox.sourceforge.net/buildozer/index.html)
