@@ -48,6 +48,7 @@
             <item name="npmpack-maven-plugin" href="npmpack-maven-plugin/index.html"/>
             <item name="contentcheck-maven-plugin" href="contentcheck-maven-plugin/index.html"/>
             <item name="args-inject" href="args-inject/index.html"/>
+            <item name="buildozer" href="buildozer/index.html"/>
         </menu>
         <links>
             <item name="Fork me on GitHub" href="https://github.com/pkozelka"/>

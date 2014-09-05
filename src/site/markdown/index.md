@@ -26,7 +26,7 @@ Author: Petr Kozelka
 * [args-inject](http://code.kozelka.net/args-inject/index.html)
   A commandline injection library - helps with commandline parsing tasks
 
-* [Buildozer](http://buildbox.sourceforge.net/buildozer/index.html)
+* [Buildozer](http://code.kozelka.net/buildozer/index.html)
   Simplifies navigation and effective build in complex Maven projects.
   (has some issues with Maven 3, needs update)
 

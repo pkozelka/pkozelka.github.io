@@ -16,7 +16,7 @@ Subprojects:
 Links to older projects:
 
 * [args-inject](http://code.kozelka.net/args-inject/index.html)
-* [Buildozer](http://buildbox.sourceforge.net/buildozer/index.html)
+* [Buildozer](http://code.kozelka.net/buildozer/index.html)
 * [Releasator](http://releasator.sourceforge.net/index.html)
 
  ~
