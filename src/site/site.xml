@@ -49,11 +49,11 @@
             <item name="contentcheck-maven-plugin" href="contentcheck-maven-plugin/index.html"/>
             <item name="args-inject" href="args-inject/index.html"/>
         </menu>
-        <menu name="Links">
+        <links>
             <item name="Fork me on GitHub" href="https://github.com/pkozelka"/>
             <item name="Apache" href="http://www.apache.org/"/>
             <item name="Maven 2" href="http://maven.apache.org/"/>
-        </menu>
+        </links>
     </body>
     <poweredBy>
         <logo img="http://maven.apache.org/images/logos/maven-feather.png"
