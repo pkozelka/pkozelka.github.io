@@ -1,0 +1,5 @@
+#!/bin/bash
+[ $# -gt 1 ] || exec echo "Usage: $0 <pidfile> <command> [command arguments]" 
+echo $$ > $1
+shift
+exec $*

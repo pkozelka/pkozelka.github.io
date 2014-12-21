@@ -1,0 +1,309 @@
+#!/bin/bash
+# $Id: keeper,v 1.21 2006/04/27 11:49:48 pk Exp $
+#
+
+function pidChildren() {
+	local spid=$1
+	local pid ppid uid rest
+	ps -f -u $USER | while read uid pid ppid rest; do
+#echo "($uid):($pid):($ppid):$rest"
+		case "$spid" in
+		"$ppid")
+			# recurse
+			echo -n " $pid"
+			;;
+		esac
+	done
+}
+
+function pidTree {
+	local spid=$1
+	local children=`pidChildren $spid`
+	if [ -z "$children" ]
+	then
+		echo -n "$spid "
+	else
+		echo -n "$spid "
+		local pid
+		for pid in $children
+		do
+			pidTree $pid
+		done
+	fi
+}
+
+function killTree() {
+	local spid=$1
+	local allpids=`pidTree $spid`
+	while true; do
+		echo -n '*'
+		eval kill -9 $allpids $LOGSTREAM
+		sleep 1
+		ps -p $allpids >/dev/null || break
+	done
+	echo '.'
+}
+
+function log() {
+	local TS=`date +'%Y-%m-%dT%H:%M:%S'`
+	eval echo \"=== keeper[$$] $TS === $@\" $LOGSTREAM
+}
+
+function simpleRotate() {
+	local logFile=$1
+	local backupDir=$2
+	local prefix=$3
+	local dateFormat=$4
+	local suffix=$5
+	local maxCount=$6
+
+	[ -s "$logFile" ] || return 0
+	# check time expiration
+#	local TS=`date +'%Y%m%d%H%M%S'`
+	local TS=`date +"$dateFormat"`
+	mkdir -p $backupDir
+	# gzip
+	local fn=$backupDir/${prefix}${TS}${suffix}.gz
+	local dir=${fn%/*}
+	mkdir -p $dir
+	gzip -c $logFile >$fn
+	>$logFile
+	echo "file '$logFile' rotated to '$fn'"
+	# remove oldest files
+	local cnt=$maxCount
+	local i
+	for i in `/bin/ls -1t $backupDir/${prefix}*${suffix}.gz`; do
+		cnt=$(( $cnt - 1 ))
+		case "$cnt" in
+		-*) rm -f $i;;
+		esac
+	done
+}
+
+function uptime() {
+	local showunit=false
+	local usec="1"
+	while [ "${1:0:1}" == "-" ]; do
+		case "$1" in
+		'--show-units')
+			showunit=true
+			;;
+		'--hours')
+			unit=' hours'
+			usec=3600
+			;;
+		'--minutes')
+			unit=' minutes'
+			usec=60
+			;;
+		'--seconds')
+			unit=' seconds'
+			usec=1
+			;;
+		*)
+			echo "uptime: Invalid option: $1" >&2
+			return -1
+		esac
+		shift
+	done
+	local since=$1
+	local now=`date +%s`
+#	echo $(( $now - $since ))
+	$showunit || unit=""
+	echo "$(( ($now - $since) / $usec ))$unit"
+}
+
+KEEPER_BASEDIR="/usr/share/buildbox/keeper"
+[ -s "$KEEPER_BASEDIR/pidwrite" ] || KEEPER_BASEDIR=${0%/*}
+CONFIGDIR="$HOME/.keeper"
+
+if ! [ -d "$CONFIGDIR" ]; then
+	echo "WARNING: first run, creating configuration dirs: $CONFIGDIR" >&2
+	mkdir -p $CONFIGDIR/run $CONFIGDIR/log
+fi
+
+[ $# -eq 1 -o $# -eq 2 ] || exec echo "Usage: $0 <service> {run|start|stop|restart|status}"
+
+SERVICE="$1"
+PRESTART=""
+STARTLINE=""
+SLEEPTIME="30"
+PREKILL=""
+KILLCMD=""
+
+PIDFILE=$CONFIGDIR/run/${SERVICE}.pid
+PIDFILEOFKEEPER=$CONFIGDIR/run/${SERVICE}.keeper.pid
+LOGFILE=$CONFIGDIR/log/${SERVICE}.log
+
+if [ -z "$2" ]
+then
+	WHATTODO="status"
+else
+	WHATTODO="$2"
+fi
+
+if [ "$SERVICE" == "all" -a ! -f "$CONFIGDIR/$SERVICE" ]
+then
+	if [ "$WHATTODO" == "restart" ]
+	then
+		"$0" all stop
+		"$0" all start
+	else	
+		for srv in `find "$CONFIGDIR"/* -prune -type f -o -type l|sed 's#/.*/##'`
+		do
+			"$0" "$srv" "$WHATTODO"
+		done	
+	fi
+	exit
+fi
+
+# read configuration
+if [ ! -f "$CONFIGDIR/$SERVICE" ]
+then
+	echo "Error: service \"$SERVICE\" not found! Available services:"
+	cd "$CONFIGDIR" || exit
+	find * -prune -type f -o -type l |tr '\n' ' ' && echo
+	exit
+fi
+. "$CONFIGDIR/$SERVICE"
+[ -z "$LOGSTREAM" ] && LOGSTREAM=">> $LOGFILE 2>&1"
+[ -z "$LOGROTATE" ] && LOGROTATE="simpleRotate $LOGFILE $CONFIGDIR/log/backup $SERVICE- '%Y%m%d-%H%M%S' .log 10"
+[ -z "$STARTCMD" ] || STARTLINE="${KEEPER_BASEDIR}/pidwrite $PIDFILE $STARTCMD"
+STOPFILE=$PIDFILE.stop
+#
+[ "$WHATTODO" = run ] || echo "$SERVICE:"
+
+[ -z "$STARTLINE" ] && exec echo "ERROR: wrong description of service in ${CONFIGDIR}/$SERVICE!" 1>&2
+
+case "$WHATTODO" in
+
+start)
+	"$0" "$SERVICE" run &
+	sleep 1
+;;
+
+run)
+	if [ -f $PIDFILEOFKEEPER ]
+	then
+		PID="`cat $PIDFILEOFKEEPER`"
+		if ps -p $PID > /dev/null
+		then
+			echo "Already running with with PID $PID. Not starting again!"
+			exit
+		else
+			echo "Crashed? Last PID was $PID."
+		fi
+	fi
+	echo "Starting..."
+	if [ -n "$CWDTOBE" ]
+	then
+		cd "$CWDTOBE" || exec echo "ERROR: cannot chdir to \"$CWDTOBE\"!" 1>&2
+	fi
+	rm -f $PIDFILEOFKEEPER
+	echo $$ > $PIDFILEOFKEEPER
+	log "Starting"
+	while :
+	do
+		eval $PRESTART
+		
+		UPTIME_SINCE=`date +%s`
+		echo $UPTIME_SINCE >$PIDFILE.since
+		eval $STARTLINE $LOGSTREAM
+		RESULT=$?
+		rm -f $PIDFILE.since
+		log "Exit($RESULT) after `uptime --show-units --minutes $UPTIME_SINCE`"
+		[ -f $STOPFILE ] && break
+		log "Sleeping for $SLEEPTIME seconds..."
+		sleep $SLEEPTIME
+		[ -f $STOPFILE ] && break
+		log "Restarting"
+	done
+	log "STOPFILE detected: $STOPFILE"
+	rm -f $STOPFILE
+;;
+
+stop)
+	echo "STOP PLEASE" >$STOPFILE
+	echo -n "Stopping $SERVICE: "
+	eval $PREKILL 
+	# Try to stop regularly
+	if [ ! -z "$KILLCMD" ]; then
+		log "Stopping [$SERVICE]..."
+		eval $KILLCMD
+	fi
+	# Kill the process
+	if [ -f $PIDFILEOFKEEPER ]
+	then
+		PID="`cat $PIDFILEOFKEEPER`"
+		if ps -p $PID > /dev/null
+		then
+			echo -n "still running with PID $PID, killing: "
+			log "Killing [$SERVICE::$PID]"
+			killTree "$PID"
+			rm -f $PIDFILEOFKEEPER
+			echo "done."
+		else
+			echo "not running. Crashed? Last PID was $PID."
+		fi
+	else
+		[ -z "$KILLCMD" ] && echo "Keeper was not running."
+	fi
+	rm -f $STOPFILE $PIDFILE $PIDFILE.since
+;;
+
+restart)
+	echo "Runnning $0 $SERVICE stop..."
+	"$0" "$SERVICE" stop
+	echo "Runnning $0 $SERVICE start..."
+	"$0" "$SERVICE" start
+;;
+
+status)
+	echo -ne "\t"
+	if [ -f $PIDFILEOFKEEPER ]
+	then
+		PID="`cat $PIDFILEOFKEEPER`"
+		if ps -p $PID > /dev/null
+		then
+			echo "Keeper  running with PID $PID."
+		else
+			echo "Keeper  CRASHED? Last PID was $PID."
+		fi
+	else
+		echo "Keeper  NOT RUNNING."
+	fi
+	if [ -f $PIDFILE ]
+	then
+		echo -ne "\t"
+		PID="`cat $PIDFILE`"
+		if ps -p $PID > /dev/null
+		then
+			echo "Service running with PID $PID."
+		else
+			echo "Service CRASHED? Last PID was $PID."
+		fi
+#	else
+#		echo "Service NOT RUNNING." 
+	fi
+#	echo -e "\tLOGFILE=$LOGFILE"
+	[ -f ${PIDFILE}.since ] && echo -e "\tUptime: $(uptime --show-units --minutes $(cat ${PIDFILE}.since))"
+;;
+
+rotate)
+	eval $LOGROTATE
+	;;
+log)
+	if [ -z "$LOGFILE" ]; then
+		echo "No logfile defined"
+	elif [ ! -f "$LOGFILE" ]; then
+		echo "Logfile does not exist: $LOGFILE"
+	else
+		cmd="tail -100f $LOGFILE $LOG_DECORATOR"
+		echo "$cmd"
+		eval $cmd
+	fi
+	;;
+*)
+	echo "Usage: $0 <service> {run|start|stop|restart|status|rotate|log}"
+esac
+
