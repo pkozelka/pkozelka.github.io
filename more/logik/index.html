@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Hra Logik</title>
+    <link rel="stylesheet/less" type="text/css" href="mastermind.less"/>
+    <style>
+        [ng\:cloak], [ng-cloak], .ng-cloak {
+            display: none !important;
+        }
+    </style>
+    <script data-main="main" src="//requirejs.org/docs/release/2.1.5/minified/require.js"></script>
+</head>
+<body ng-cloak>
+<div id="gameBoard" ng-controller="MastermindController">
+    <section id="heading">
+        <h1>Logik</h1>
+        <span id="shield">
+            <span class="CodePegHole" ng-repeat="s in game.secret">
+                <br/>
+            </span>
+        </span>
+    </section>
+    <section id="decodingBoard">
+        <div ng-repeat="row in game.rows"
+             ng-class="{ActiveRow: game.currentRow==$index+1}"
+             class="Row">
+            <span class="RowNumber">{{$index+1}}.</span>
+            <span class="KeyPegs">
+                <span ng-repeat="keypegIndex in [1,settings.codeSize] | makeRange"
+                      class="KeyPegHole {{row.keypegs[keypegIndex-1]}}">
+                    <br/>
+                </span>
+            </span>
+            <span class="CodePegs">
+                <a ng-repeat="codepegIndex in [1,settings.codeSize] | makeRange"
+                   ng-class="{Active: game.currentRow==row.rowIndex &amp;&amp; game.currentCodePegHole==codepegIndex}"
+                   ng-click="game.setCurrentHole(codepegIndex,row.rowIndex)"
+                   href="#" class="CodePegHole CodePeg-{{row.guess[$index]}}">
+                    {{row.guess[$index] || ''}}
+                </a>
+            </span>
+            <span class="RowNumber">{{$index+1}}.</span>
+        </div>
+    </section>
+    <section id="controls">
+        <section id="buttonBar">
+            <button ng-click="game.evaluate()">OK</button>
+            <!--<button>Nová hra</button>-->
+        </section>
+        <section id="colorSelection">
+            <a ng-repeat="colorIndex in [1,settings.colorCount] | makeRange"
+               ng-click="game.setGuess(colorIndex)"
+               class="CodePeg CodePeg-{{colorIndex}}">
+                {{colorIndex}}
+            </a>
+
+            <div class="ClearFix"></div>
+        </section>
+    </section>
+</div>
+</body>
+</html>

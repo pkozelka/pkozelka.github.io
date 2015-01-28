@@ -1,0 +1,37 @@
+function __keeper_services() {
+    local cur="$1"
+    find $HOME/.keeper -maxdepth 1 -\( -type f -o -type l -\) -name "${cur}"'*' -printf '%f\n'
+	case "all" in
+	${cur}*)
+		echo "all"
+		;;
+	esac
+}
+
+function __keeper_commands() {
+	local cur="$1"
+	grep "^$cur" <<EOF
+log
+restart
+rotate
+run
+start
+status
+stop
+EOF
+}
+
+function __keeper_completion() {
+	local cur
+	cur=${COMP_WORDS[COMP_CWORD]}
+	case "$COMP_CWORD" in
+	'1')
+		COMPREPLY=( $( __keeper_services "$cur") )
+		;;
+	'2')
+		COMPREPLY=( $( __keeper_commands "$cur") )
+		;;
+	esac
+}
+
+complete -F __keeper_completion keeper

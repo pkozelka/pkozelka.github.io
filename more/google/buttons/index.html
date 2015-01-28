@@ -1,0 +1,91 @@
+<html>
+<head>
+  <title>Petr Kozelka - Google Toolbar Buttons</title>
+</head>
+<body>
+<style type="text/css">
+  body {
+    font-family: sans-serif;
+  }
+  .gtb {
+    border: 1px solid rgb(224, 224, 224);
+    width: 400px;
+    margin: 10px;
+  }
+  .gtb tr {
+    vertical-align: top;
+  }
+  .gtb img {
+    padding: 10px 20px;
+  }
+  .gtb form {
+    margin: 0 5px 5px 0;
+    /*text-align: right;*/
+  }
+  .gtb .title {
+    font-weight: bold;
+    border-bottom: 1px solid rgb(224, 224, 224);
+  }
+  .gtb .desc {
+    height: 4em;
+  }
+  .gtb ul, .gtb p {
+    margin: 0;
+  }
+</style>
+
+<h1>Petr Kozelka - Google Toolbar Buttons</h1>
+<table class="gtb">
+  <tr>
+    <td rowspan="3">
+      <img src="http://www.google.com/options/icons/picasa.gif"/>
+    </td>
+    <td width="90%" class="title">Google Picasa</td>
+  </tr>
+  <tr class="desc">
+    <td>
+      <p>Search/browse your Google Picasa photos
+      <ul>
+        <li>has submenu with available galleries</li>
+        <li>search in your photos only</li>
+      </ul>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <form method="get" action="http://toolbar.google.com/buttons/add">
+        <input type="hidden" value="http://kozelka.net/google/buttons/picasa.gbutton.xml" name="url"/>
+        <input type="submit" value="Add to Toolbar"/>
+      </form>
+    </td>
+  </tr>
+</table>
+
+<table class="gtb">
+  <tr>
+    <td rowspan="3">
+      <img src="http://www.google.com/options/icons/notebook.gif"/>
+    </td>
+    <td width="90%" class="title">Google Notebook</td>
+  </tr>
+  <tr class="desc">
+    <td>
+      <p>Search or visit your Google Notebook
+        <ul>
+          <li>search in your notes only</li>
+        </ul>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <form method="get" action="http://toolbar.google.com/buttons/add">
+        <input type="hidden" value="http://kozelka.net/google/buttons/notebook.gbutton.xml" name="url"/>
+        <input type="submit" value="Add to Toolbar"/>
+      </form>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

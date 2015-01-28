@@ -1,0 +1,172 @@
+@textColor: #002a80;
+@backgroundColor: #5f9ea0;
+@backgroundColorActive: #7fbec0;
+
+#gameBoard {
+    display: inline-block;
+    border: 7px solid gray;
+    margin: 5px;
+    background-color: @backgroundColor;
+    font-family: arial;
+    font-size: 80%;
+
+    .ClearFix {
+        clear: both;
+    }
+
+    #heading {
+        height: 3em;
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        h1 {
+            margin: 0 39px;
+            width: 65px;
+            display: inline;
+            float: left;
+        }
+
+        #shield {
+            font-weight: lighter;
+
+            .CodePegHole {
+                background-image: radial-gradient(circle, white, blue);
+            }
+        }
+    }
+
+    .Row {
+        clear: both;
+        height: 22px;
+        padding: 5px;
+        margin: 10px 0;
+        border: solid 1px @backgroundColor;
+
+        .RowNumber {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            margin: 0 7px;
+            border-radius: 10px;
+            border: (@backgroundColor+#222222) dotted 1px;
+            text-align: center;
+            color: @backgroundColorActive;
+            font-size: 90%;
+            position: relative;
+            top: -9px;
+        }
+
+        .KeyPegs {
+            display: inline-block;
+            padding: 6px 0;
+        }
+
+        .CodePegs {
+            display: inline-block;
+        }
+    }
+
+    .ActiveRow {
+        background-color: @backgroundColorActive;
+        border: dotted 1px gray;
+
+        .RowNumber {
+            background-color: @backgroundColor;
+            color: @backgroundColorActive;
+        }
+
+    }
+
+    #buttonBar button {
+        width: 120px;
+        height: 40px;
+    }
+
+    #buttonBar {
+        clear: both;
+        margin: 10px;
+        float: right;
+    }
+
+    #controls {
+        border: 5px solid darkgray;
+        background-color: silver;
+        margin: 2px;
+        text-align: center;
+//        position: absolute;
+    }
+
+    #colorSelection {
+        display: block;
+        padding: 5px 10px;
+        width: 40%;
+
+        .CodePeg {
+            cursor: pointer;
+        }
+    }
+
+    .CodePeg-0 {}
+    .CodePeg-1 { background-color: red; }
+    .CodePeg-2 { background-color: blue; }
+    .CodePeg-3 { background-color: black; }
+    .CodePeg-4 { background-color: green; }
+    .CodePeg-5 { background-color: purple; }
+    .CodePeg-6 { background-color: yellow; }
+    .CodePeg-7 { background-color: orange; }
+    .CodePeg-8 { background-color: magenta; }
+
+    .CodePeg {
+        display: inline;
+        list-style: none;
+        float: left;
+        border: 1px solid silver;
+        padding: 1px 3px;
+        margin: 2px 5px;
+        width: 14px;
+        height: 19px;
+        border-radius: 11px;
+        text-align: center;
+        color: @backgroundColor;
+    }
+
+    .CodePegHole {
+        width: 20px;
+        height: 22px;
+        border-radius: 12px;
+        border: 1px dotted navy;
+        float: left;
+        margin: 0 5px;
+
+        text-align: center;
+        color: @backgroundColor;
+        cursor: default;
+    }
+    .CodePegHole.Active {
+        border: 1px red solid;
+    }
+    .ActiveRow .CodePegHole {
+        cursor: pointer;
+    }
+    .ActiveRow .CodePegHole:hover {
+        background-color: @backgroundColor;
+        border: 1px solid @backgroundColor;
+    }
+
+    .KeyPegHole {
+        width: 9px;
+        height: 10px;
+        margin: 0 4px;
+        border-radius: 3px;
+        border: 1px dotted blue;
+        float: left;
+    }
+    .KeyPegHole.GoodColor {
+        background-color: white;
+        border-color: white;
+    }
+    .KeyPegHole.GoodPosition {
+        background-color: black;
+        border-color: black;
+    }
+}

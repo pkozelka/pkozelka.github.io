@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<custombuttons xmlns="http://toolbar.google.com/custombuttons/">
+  <button>
+    <title>Maven Repository</title>
+    <description>Search/Browse Maven artifacts</description>
+    <search>http://mvnrepository.com/search.html?query={query}</search>
+    <site>http://mvnrepository.com/</site>
+    <icon mode="base64" type="image/x-icon">
+      R0lGODlhEAAQAPQAAGdpZXFzb3d5dYiKhIiKhYmLh42Pio+RjJeZk6KjoLi6tL2/ucDAvsfKw9PX
+      z+7u7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEA
+      ABAAIf4VQ3JlYXRlZCB3aXRoIFRoZSBHSU1QACwAAAAAEAAQAAAFViAkjmRpQkR6jirxEChcugyR
+      OAnBvDPj/EBHzURwKAaIwcIhY9kcgwAEUMCpRK4fYoT48bBPwwEiGFib2IfCkGwwib7gb0iiPXM7
+      NBjFu65SeiuCgychADs=
+    </icon>
+    <feed menu="true" refresh-onclick="true" refresh-interval="3600" refresh-menuitem="false">http://mvnrepository.com/feeds/atom.xml</feed>
+    <update>http://kozelka.net/google/buttons/mvnrepository.gbutton.xml</update>
+  </button>
+</custombuttons>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html ng-app="MyApp" class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/foundation/5.5.0/css/foundation.min.css" />
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.11/angular.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/foundation/5.5.0/js/vendor/modernizr.js"></script>
+    <script src="http://cdn.jsdelivr.net/foundation/5.5.0/js/vendor/jquery.js"></script>
+</head>
+<body ng-controller="MainController">
+<style>
+    .vlajky li img {
+        padding: 0;/*4px 6px;*/
+        margin: 1em;
+        border: solid 1px silver;
+    }
+    .vlajky li {
+        display: inline-block;
+    }
+    .vlajky {
+        list-style: none;
+    }
+</style>
+<script>
+    var app = angular.module('MyApp', []);
+    app.controller('MainController', function ($scope) {
+        $scope.flags=['pl','sk','hu','fr','be','gb','no','fi','dk','is','es','pt','cn','se','nl','lu'];
+    });
+</script>
+<h1>Vlajky</h1>
+<ul class="vlajky">
+    <li ng-repeat="flag in flags">
+        <div style="text-align: center; width: 150px;">{{flag}}</div>
+        <img width="150" src="http://www.statnivlajky.cz/data/flags/normal/{{flag}}.png"/>
+    </li>
+</ul>
+
+<script src="http://cdn.jsdelivr.net/foundation/5.5.0/js/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+</script>
+</body>
+</html>

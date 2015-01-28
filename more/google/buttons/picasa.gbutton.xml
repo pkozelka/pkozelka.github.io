@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<custombuttons xmlns="http://toolbar.google.com/custombuttons/">
+  <button>
+    <title>Google Picasa</title>
+    <option>
+      <title>Google User Account</title>
+      <title locale="cs">Uživatelský účet Google</title>
+    </option>
+    <description>Search/browse your photos</description>
+    <description locale="cs">Hledání ve vlastních fotkách</description>
+    <search>http://picasaweb.google.com/lh/search?q={query}&amp;uname={option1}&amp;psc=S&amp;filter=0</search>
+    <site>http://picasaweb.google.com</site>
+    <icon mode="base64" type="image/gif">
+R0lGODlhIwAjAPcAAACjNetNSvr+/vn2+q2UxPv5+/P79vru4QCnPgBjtuvz+etWVd/V5+r486CC
+u+r38etaV/GdQrmiygB6wACkOfCaQP3+/vT5+wCsRo9prse31fKcQZJtr9DA3eg+Owx8wuhGQfGh
+oY9rrv/9/fn6/Jx8uOk2NPGaOwZ/wp59uf7DnP2+kelDQQ18xPKjT/GcRFfOhUSazJd0s5RxsgBp
+upFrrweBw55+uQCwUACwUQCuSvKmVwquTun27wCxUvKlU5+Auvv37vCeRwCxUfGenvKnWO30+vKn
+V//+//KmVvKkU/GeSJ9/ufKnVutYVZ9/ugqvT+ny9vz9/etZVv/49Z9+uvWqqoDZqsns1gCkMgCk
+N/7///WtrIvcsX7Xpp5+uv39/Y1nrfjTxJ5/uf7+/vfd2NHC3vfBqQh/w+c7OPLXv/GcPuhLSQBx
+vO+ZPuX07H262RR+wwCfK/n8+vjt59r48otnrOTN4vv27FXMguxaVutQTe59dwBsu0LDfuxXVfjr
+3fCdlROwU/rl0p19t06gzpRysv7DmoxmrYxnraaJvvKcQ+3w+fXQr1jIjufx91rPhr6u1ec7NtDG
+5Og5M/P6/fKUjZNvsff8/elJRvHa6fCvdOtbWAipQvTZ1e+jV/nS0PCTMQqwUKvS5Qdnu77n0fKl
+VehGP/fNwBCvT+Lc6fDv8iO2X9bB24nXrecxLvKcRPfs6u+PjWnOmXXQn4tiqt/z+M/G5KWHvfv1
+7CaNyS+SzDGTylDMgfv18/X7+Pf7+eYtK9PI3ZZ0tQinPu338oJapfKkUO6VM8q01efh7NzR5vGs
+n/POqezq8gCvULikz/HIofPMpnmz2PG/jEDGdqXevwdpu/XWvPjo2f779gqwT/ael+2PLQCuS/bj
+2ffi3fGdSRSyWvrt5Pbz+I5nrPGeSfv49Pr59/729PKmVZ5/ugCwT/z9/P7//fLVvPLYwZp5te15
+dFGj0PT7/fCeSJ17uPGfSPz7/JZys+g/PQB3v83j7xB7vgCvS////yH5BAAAAAAALAAAAAAjACMA
+AAj/AP8JHEiwoMGDCBMqXMiwoUOGI9KJscKFixUxvh4mRPIvUDAQHkJ6OJVJHiiNBZURmkSFjz49
+EGL++fNKlrZsKMFoyDCjxi13ltL8meLECQQWIfB0w2bBIRgJYVIAKYEokhRulBYQPUokyItQ0bY0
+1BBmHZMbTL6Ug0bijKQ9MVl0NXfsxDuGqqKevcHXQS0CW1CxCcBJbpAlplyEo6OwgAMZT/jyBTJM
+BgOBZQIEMLxESZENm8gkFJYBiOQbQGbEW0UQXAATIQ4r2dGkwjeESAjkizz5Ei5yBmOZkCV7x2dq
+CAcYsjdmcg1FAxB6Ypbr3uwjLj6hO8iAQ5UbY6rU/yBQYOEBIT927PjxYtzBDiKepM0gAR/D8+mT
+NIEF733pFIgkM0JT5qG3QxJHbNDMeyKkkEgr7czDz30GIriBNAeZYUcGd2ASwzWPUJhfE4uocdAy
+xmhCzy4JfBDFffWoU0QRR7wwyEHOaFKJLn1M4CJDgCCzRgQRnODGOQjZEkcbNvj44kJUrHCICiqs
+0AiBBsGRgA0oTNCCAga80cOYZJb5QANoNlCHAAld0M8+aHhpRB7EQMHDnXjiuQ0UUIjSCStzKDQK
+DV22YEQvFPijw6KMNqqDNxjIUcpCZBRCg5wwIOBDDpx26ukQOQAwC0cLkcBLAoZmOgQOrLba6hDs
+ZFbhhxQOXRADKQpAgsCqrrI6hA8YZOEIMBq1Mw0j1QCQgw/MNvsMBgCkYg2pKP3jiiAIaAHAtgBo
+gYA4tBRTbUG/YNGFF1dc4UUXWPwy7rvwxivvvPMGBAA7
+    </icon>
+    <feed menu="true" refresh-onclick="true" refresh-interval="900" refresh-menuitem="false">http://picasaweb.google.com/data/feed/api/user/{option1}?kind=album</feed>
+    <update>http://kozelka.net/google/buttons/picasa.gbutton.xml</update>
+  </button>
+</custombuttons>

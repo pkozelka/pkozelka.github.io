@@ -18,6 +18,3 @@ Links to older projects:
 * [args-inject](http://code.kozelka.net/args-inject/index.html)
 * [buildozer](http://code.kozelka.net/buildozer/index.html)
 * [releasator](http://releasator.sourceforge.net/index.html)
-
-
-

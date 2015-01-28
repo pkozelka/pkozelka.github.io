@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<custombuttons xmlns="http://toolbar.google.com/custombuttons/">
+  <button>
+    <title>Google Notebook</title>
+    <title locale="cs">Poznámkový blok Google</title>
+    <description>Search/visit your notebook</description>
+    <description locale="cs">Prohledávání poznámek</description>
+    <search>http://google.com/notebook/fullpage?q={query}</search>
+    <site>http://google.com/notebook</site>
+    <icon mode="base64" type="image/x-icon">
+AAABAAEAEBAQAAAAAABoAwAAFgAAACgAAAAQAAAAIAAAAAEAGAAAAAAAAAMAABILAAASCwAAAAAA
+AAAAAADm5ubm5ubm5uY0KQA0KgA0KgA2KwA2KwA2KwA2KwA1KwA0KQA0KQA0KQDm5ubm5ubm5uYy
+KQD///////////////////////////////////////9osno/kE0yKQDm5ubm5uYyKQD////Jl1LI
+llHHlVDFk07DkUzBj0q+jEe8ikWtezZosnpAkE00KgDm5ua2uK19fnd7fHXPnVjOnFfMmlXLmVTI
+llHFk07DkUy/jUiwfjlosnpAkE00KgDm5ub8/PvR0su2uK3Vo17Uol3SoFvQnlnNm1bKmFPHlVDD
+kUy0gj1osno+jko3LADm5ubm5uZAMwb////bqWTaqGPYpmHVo17ToVzPnVjLmVTHlVC2hD87j0vR
+0stCNQfm5ubm5uZCNQb////hr2rfrWjerGfbqWTYpmHUol3QnlnLmVS5h0KM5OokzelCNQfm5ua2
+uK19fnd7fHXntXDmtG/jsWzgrmncqmXYpmHUol3PnVi8ikWM5OokzelGPRXm5ub8/PvR0su2uK3t
+u3bruXTpt3Lls27hr2rdq2bYpmHToVy/jUiM5OokzelGPRXm5ubm5uZQQxr////zwXzxv3ruvHfq
+uHPls27grmnbqWTWpF/Bj0qL4+okzOhPQhnm5ubm5uZWSiD////3xYD1w37/////////////////
+///YpmHDkUwz0OnR0stXSyHm5ua2uK2LjYSCg3v8yoX5x4L+/fz////////////////aqGPFk06k
+nuhIPZhcUSnm5ubm5+Pd3ti2uK3/zov8yoX3xYDywHvtu3bntXDhr2rbqWTGlE+lnuhIPZhiWDHm
+5ubm5uZlWzT/////z439y4b4xoHzwXzuvHfntXDisGvbqWTHlVClnuhIPZhiWDHm5ubm5ubm5ubt
+u3bsunXpt3Lls27hr2rcqmXWpF/Rn1rLmVTFk06noOhIPZloXjXm5ubm5ubm5ubm5uZwZUFwZUFw
+ZUFwZUFwZUFwZUFwZUFwZUFwZUFwZUFwZUHm5ubm5ubgA///gAH//4AB//8AAf//AAH//4AB//+A
+Af//AAH//wAB//+AAf//gAH//wAB//8AAf//gAH//8AB///gA///
+    </icon>
+    <feed menu="false" google-service="false"></feed>
+    <update>http://kozelka.net/google/buttons/notebook.gbutton.xml</update>
+  </button>
+</custombuttons>
